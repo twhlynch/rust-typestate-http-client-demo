@@ -1,0 +1,7 @@
+[package]
+name = "rust-http-client"
+version = "0.1.0"
+edition = "2024"
+description = "Demo of the typestate pattern vs runtime state checks"
+
+[dependencies]
