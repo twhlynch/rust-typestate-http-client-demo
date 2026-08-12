@@ -1,4 +1,5 @@
 mod traditional;
+mod typestate;
 
 fn main() {
     // traditional
@@ -12,4 +13,17 @@ fn main() {
         Ok(()) => println!("success"),
         Err(e) => println!("runtime error: {e:?}"),
     }
+
+    // typestate
+    let typestate_client = typestate::Client::new()
+        .connect("localhost:8080")
+        .disconnect()
+        .connect("hi")
+        .disconnect()
+        .connect("");
+
+    typestate_client.get("/users");
+    typestate_client.post("/users", "body");
+
+    let _typestate_disconnected = typestate_client.disconnect();
 }
